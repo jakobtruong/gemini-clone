@@ -6,14 +6,14 @@ import (
 	"net/http"
 )
 
-const PortNumber string = ":8080"
+const PortNumber string = "8080"
 
 func Run() {
 	fmt.Println("Starting http server.")
-	log.Println("http server starting on port", PortNumber)
+	log.Printf("http server starting here: http://localhost:%s", PortNumber)
 	fmt.Println("To close connection, press 'CTRL+C'.")
 
-	err := http.ListenAndServe(PortNumber, nil)
+	err := http.ListenAndServe(":"+PortNumber, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
